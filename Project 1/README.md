@@ -1,6 +1,6 @@
 # Project 1
 
-## Portfolio Construction
+### Portfolio Construction
 The portfolio is intended to be exposed to a global market. As such its weights are designed to be a function of each coutry's or continent's population.
 I chose ETF's that, when taken as a group, represented the globe.
 Their weight were set soley on the percentage of the global population that resides in their borders.
@@ -29,3 +29,5 @@ Australia: EWA
 | AFK  | 1,216,000,000 | 15.97%  |
 | EWA  | 25,690,000    | 0.34%   |
 |      | 7,616,461,746 | 100.00% |
+
+Using python and yahoo finance I have pulled the data for each of these ETF's for the last 10 years.
