@@ -6,10 +6,15 @@ I chose ETF's that, when taken as a group, represented the globe.
 Their weight were set soley on the percentage of the global population that resides in their borders.
 
 Europe: SPEU
+
 North America: SPY(US),EWC(CA),EWW(MX)
+
 South America: ILF
+
 Asia: AAXJ(or all of A-japan), EWJ
+
 Africa: AFK
+
 Australia: EWA
 
 |      | Pop           | Percent |
