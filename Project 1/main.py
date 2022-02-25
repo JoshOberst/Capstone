@@ -4,6 +4,7 @@ import csv
 import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
+
 dateMaster = datetime.date(2010, 12, 25) #this is the ultimate start date, preferably near the end of the year
 dateVar = dateMaster
 
@@ -28,10 +29,18 @@ for etf in returns.index:
             returns[year][etf] = ((fullData[year][etf] - fullData[str(int(year)-1)][etf])/ fullData[str(int(year)-1)][etf])*100
 
 print(returns)
-plot = returns.transpose().plot()
-plot.set_xlabel("Year")
-plot.set_ylabel("Returns(%)")
-plot.set_title("ETF Returns Since 2011")
-plot.legend(title='ETFs',title_fontsize=10,loc='center left', bbox_to_anchor=(1, 0.5))
-plt.show()
 
+fig, ax = plt.subplots(3,3)
+fig.tight_layout()
+i = 0
+j = 0
+
+for etf in returns.index:
+    print(i,j)
+    ax[i][j].plot(returns.transpose().get(etf))
+    ax[i][j].set_title(etf)
+    j=j+1
+    if j > 2:
+        j = 0
+        i = i+1
+plt.show()
