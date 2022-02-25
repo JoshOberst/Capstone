@@ -7,11 +7,11 @@ Their weight were set soley on the percentage of the global population that resi
 
 Europe: SPEU
 
-North America: SPY(US),EWC(CA),EWW(MX)
+North America: SPY(USA),EWC(Canada),EWW(Mexico)
 
 South America: ILF
 
-Asia: AAXJ(or all of A-japan), EWJ
+Asia: AAXJ(or all of Asia excluding Japan), EWJ(Japan)
 
 Africa: AFK
 
