@@ -4,8 +4,8 @@ import csv
 import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
-
-dateMaster = datetime.date(2010, 12, 25)
+dateMaster = datetime.date(2010, 12, 25) #this is the ultimate start date, preferably near the end of the year
+dateVar = dateMaster
 
 weightList = list(csv.reader(open('Project 1\WeightsOfTheWorld.csv')))
 weights = pd.DataFrame(weightList,columns=weightList[0])
@@ -17,10 +17,10 @@ returns = pd.DataFrame([],weights["Tick"][1:len(weights)-1].to_list(),['2011','2
 for tick in data:
     for price in data.get(tick):
         for date in data.get(tick)[data.get(tick) == price].index:
-            if date > dateMaster:
+            if date > dateVar:
                 fullData[str(date.year)][tick] = price 
-                dateMaster = date              
-    dateMaster = datetime.date(2010, 12, 25)
+                dateVar = date              
+    dateVar = dateMaster
 
 for etf in returns.index:
     for year in returns.iloc[0].index:
