@@ -28,4 +28,10 @@ for etf in returns.index:
             returns[year][etf] = ((fullData[year][etf] - fullData[str(int(year)-1)][etf])/ fullData[str(int(year)-1)][etf])*100
 
 print(returns)
-#print(fullData)
+plot = returns.transpose().plot()
+plot.set_xlabel("Year")
+plot.set_ylabel("Returns(%)")
+plot.set_title("ETF Returns Since 2011")
+plot.legend(title='ETFs',title_fontsize=10,loc='center left', bbox_to_anchor=(1, 0.5))
+plt.show()
+
