@@ -15,6 +15,7 @@ data = yf.download(weights["Tick"][1:len(weights)-1].to_list(), start='2010-12-2
 fullData = pd.DataFrame([],weights["Tick"][1:len(weights)-1].to_list(),['2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021'])
 returns = pd.DataFrame([],weights["Tick"][1:len(weights)-1].to_list(),['2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021'])
 
+#creating the returns dataframe
 for tick in data:
     for price in data.get(tick):
         for date in data.get(tick)[data.get(tick) == price].index:
@@ -28,15 +29,33 @@ for etf in returns.index:
         if year != '2010':
             returns[year][etf] = ((fullData[year][etf] - fullData[str(int(year)-1)][etf])/ fullData[str(int(year)-1)][etf])*100
 
-print(returns)
 
+#Portfolio Performace
+startingCash = 100000
+value = pd.DataFrame([],weights["Tick"][1:len(weights)-1].to_list(),['2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021'])
+for tick in data:
+    moneyToSpend = float(weights.loc[weights['Tick'] == tick].get('Percent').values[0]) * startingCash
+    shares = moneyToSpend/data.get(tick)[0]
+    for year in value.iloc[0].index:
+        if year != '2010':
+            value[year][tick] = fullData[year][tick] * shares
+
+#Total Row
+yearTotals = []
+for year in value.iloc[0].index:
+    yearTotals.append(value[year].sum())
+value.loc['Total'] = yearTotals
+print(value)
+
+ 
+
+
+#Creating Plots
 fig, ax = plt.subplots(3,3)
 fig.tight_layout()
 i = 0
 j = 0
-
 for etf in returns.index:
-    print(i,j)
     ax[i][j].plot(returns.transpose().get(etf))
     ax[i][j].set_title(etf)
     j=j+1
@@ -44,3 +63,4 @@ for etf in returns.index:
         j = 0
         i = i+1
 plt.show()
+
