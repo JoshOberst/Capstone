@@ -51,13 +51,14 @@ def returns(weightCSV):
     #Creating Plots
     fig, ax = plt.subplots(3,3)
     fig.tight_layout()
-    fig.suptitle('Returns(%) YoY', fontsize=16)
+    fig.suptitle('ETFs in the Portfolio', fontsize=16)
     i = 0
     j = 0
     for etf in returns.index:
         ax[i][j].tick_params(axis='x', labelrotation = 45)
         ax[i][j].plot(returns.transpose().get(etf))
         ax[i][j].set_title(etf)
+        ax[i][j].set_ylabel('Returns(%)')
         j=j+1
         if j > 2:
             j = 0
@@ -89,6 +90,7 @@ for year in popValue.index:
 plt.plot(popValue,label="Weighted By Population")
 plt.plot(gdpValue,label="Weighted By GDP")
 plt.title("Value of the Portfolios")
+plt.ylabel("Value(USD$)")
 plt.legend()
 plt.show()
 
@@ -96,6 +98,7 @@ plt.close()
 
 plt.plot(popReturns,label="Weighted By Population")
 plt.plot(gdpReturns,label="Weighted By GDP")
-plt.title("Returns(%) of the Portfolios")
+plt.title("Returns of the Portfolios")
+plt.ylabel("Returns(%)")
 plt.legend()
 plt.show()
