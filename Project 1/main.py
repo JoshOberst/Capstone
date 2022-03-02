@@ -29,7 +29,6 @@ for etf in returns.index:
         if year != '2010':
             returns[year][etf] = ((fullData[year][etf] - fullData[str(int(year)-1)][etf])/ fullData[str(int(year)-1)][etf])*100
 
-
 #Portfolio Performace
 startingCash = 100000
 value = pd.DataFrame([],weights["Tick"][1:len(weights)-1].to_list(),['2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021'])
@@ -47,15 +46,14 @@ for year in value.iloc[0].index:
 value.loc['Total'] = yearTotals
 print(value)
 
- 
-
-
 #Creating Plots
 fig, ax = plt.subplots(3,3)
 fig.tight_layout()
+fig.suptitle('Returns(%) YoY', fontsize=16)
 i = 0
 j = 0
 for etf in returns.index:
+    ax[i][j].tick_params(axis='x', labelrotation = 45)
     ax[i][j].plot(returns.transpose().get(etf))
     ax[i][j].set_title(etf)
     j=j+1
