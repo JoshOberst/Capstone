@@ -12,7 +12,7 @@ import math
 
 dateMaster = datetime.date(2010, 12, 25) #this is the ultimate start date, preferably near the end of the year
 bench = 'VT'
-tenYearTbill = yf.download('^TNX',start = '2022-03-18').get('Adj Close')[-1]
+tenYearTbill = yf.download('^TNX',start = '2022-05-01').get('Adj Close')[-1]
 
 popWeighted = list(csv.reader(open('Project 1\WeightsOfTheWorld.csv')))
 gdpWeighted = list(csv.reader(open('Project 1\WeightOfTheWorldByGDP.csv')))
