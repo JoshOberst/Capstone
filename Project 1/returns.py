@@ -54,3 +54,6 @@ gdpSharpe = (gdpER - (tenYearTbill/252))/sqrt(gdpVar).real
 
 print("Population Weighted Portfolio",'\n',"Expected Return: " + str(popER*100)+"% ",'\n',"Varience: " + str(popVar*100)+ "%",'\n', "Sharpe Ratio " + str(popSharpe*100)+"%",'\n'+" ")
 print("GDP Weighted Portfolio",'\n',"Expected Return: " + str(gdpER*100)+"% ",'\n',"Varience: " + str(gdpVar*100)+ "%",'\n', "Sharpe Ratio " + str(gdpSharpe*100)+"%",'\n'+" ")
+print(eR)
+print(covMatrix)
+print(tenYearTbill)
